@@ -1,6 +1,0 @@
-#include "CheckNumOrNot.h"
-#include "CheckHexOrNot.h"
-#include "HexToDec.h"
-#include "StringToDec.h"
-#include "toupper.h"
-#include "Complement.h"
