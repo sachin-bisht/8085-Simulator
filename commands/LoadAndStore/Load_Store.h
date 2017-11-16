@@ -1,0 +1,10 @@
+#include "LDA.h"
+#include "LHLD.h"
+#include "STA.h"
+#include "STAX.h"
+#include "XCHG.h"
+#include "LXI.h"
+#include "MOV.h"
+#include "MVI.h"
+#include "SHLD.h"
+
