@@ -1,0 +1,7 @@
+#include "debugger.h"
+#include "complier.h"
+#include "menu.h"
+#include "Opcode_Call.h"
+#include "readFromCLI.h"
+#include "readInstruction.h"
+#include "readInstructionFromFile.h"
