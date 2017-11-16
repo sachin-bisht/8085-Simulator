@@ -15,8 +15,56 @@ void inr(string ch)
             invalid_address
             return;
         }
+        
+        i8 nibble1 = v1 % 16;
+        i8 nibble2 = 1;
+        nibble1 += nibble2;
+        if(nibble1 > 16)
+        {
+            acf = 1;
+        }
+        else
+        {
+            acf = 0;
+        }
+        
         v1 += 1;
+        
+        if(v1 >= (1<<4))
+        	sf = 1;
+        else
+        	sf = 0;
+        if(v1 >= (1<<8))
+        {
+        	cf = 1;
+        	if(v1 == (1<<8))
+        		zf = 1;
+        	else
+        		zf = 0;
+        }
+        else
+        {
+        	cf = 0;
+        }
+        
         v1 %= (1<<8);
+        
+        i8 v5 = v1;
+	    i8 co = 0;
+    	while(v5 > 0)
+	    {
+	        co += (v5 % 2);
+	        v5 /= 2;
+	    }
+	    if(co % 2)  //Odd parity
+	    {
+	        pf = 0;
+	    }
+	    else        //Even parity
+    	{
+	        pf = 1;
+	    }
+    	
         address[val] = v1;
 
     }
@@ -24,6 +72,54 @@ void inr(string ch)
     {
         if(ch[0] == 'A' || ch[0] == 'B' || ch[0] == 'C' || ch[0] == 'D' || ch[0] == 'E' || ch[0] == 'H' || ch[0] == 'L')
         {
+        	i8 v1 = reg[ch[0]];
+	        i8 nibble1 = v1 % 16;
+	        i8 nibble2 = 1;
+	        nibble1 += nibble2;
+	        if(nibble1 > 16)
+	        {
+	            acf = 1;
+	        }
+	        else
+	        {
+	            acf = 0;
+	        }
+	        v1 += 1;
+	        if(v1 >= (1<<4))
+	        	sf = 1;
+	        else
+	        	sf = 0;
+	        if(v1 >= (1<<8))
+	        {
+	        	cf = 1;
+	        	if(v1 == (1<<8))
+	        		zf = 1;
+	        	else
+	        		zf = 0;
+	        }
+	        else
+	        {
+	        	cf = 0;
+        	}
+	        
+        	v1 %= (1<<8);
+        	        
+	        i8 v5 = v1;
+		    i8 co = 0;
+	    	while(v5 > 0)
+		    {
+		        co += (v5 % 2);
+		        v5 /= 2;
+		    }
+		    if(co % 2)  //Odd parity
+		    {
+		        pf = 0;
+		    }
+		    else        //Even parity
+	    	{
+		        pf = 1;
+		    }
+		    
             reg[ch[0]] += 1;
             reg[ch[0]] %= (1<<8);
         }
