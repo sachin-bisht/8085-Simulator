@@ -53,12 +53,12 @@ void checkparity()
 
 void checkauxiliary(i8 val1, i8 val2, bool check)
 {
+    i8 nibble1 = val1 % 16;
+    i8 nibble2 = val2 % 16;
+
     if(check)   //Add
-    {
-        i8 nibble1 = val1 % 16;
-        i8 nibble2 = val2 % 16;
-        val1 += val2;
-        if(val1 > 16)
+    {        nibble1 += nibble2;
+        if(nibble1 > 16)
         {
             acf = 1;
         }
@@ -69,7 +69,7 @@ void checkauxiliary(i8 val1, i8 val2, bool check)
     }
     else    //Subtract
     {
-        if(val2 > val1)
+        if(nibble2 > nibble1)
             acf = 1;
         else
             acf = 0;
