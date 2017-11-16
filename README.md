@@ -1,5 +1,5 @@
 # 8085-Simulator
-CPP program to emulate the functionality of 8085
+C++ program to emulate the functionality of 8085
 
 There are many folders present in this.
 Each folder has different purpose.
